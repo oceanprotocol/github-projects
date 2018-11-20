@@ -6,8 +6,8 @@ let data = []
 let dataRepos = []
 let dataReleases = []
 
-const orgname = 'bigchaindb'
-const reponame = 'bigchaindb' // Used for fetching specific release
+const orgname = 'oceanprotocol'
+// const reponame = 'bigchaindb' // Used for fetching specific release
 
 const log = text => console.log(text)
 const logError = text => console.log(chalk.bold.red(text))
@@ -77,37 +77,37 @@ const fetchRepos = () => {
 //
 // @TODO: make this fetch all releases of all repos
 //
-const fetchReleases = () => {
-    const start = Date.now()
-    const url = 'https://api.github.com/repos/bigchaindb/' + reponame + '/releases/latest'
+// const fetchReleases = () => {
+//     const start = Date.now()
+//     const url = 'https://api.github.com/repos/bigchaindb/' + reponame + '/releases/latest'
 
-    fetch(url, options)
-        .then(res => {
-            return handleResponse(res)
-        })
-        .then(data_ => {
-            if (!data_) {
-                return
-            }
+//     fetch(url, options)
+//         .then(res => {
+//             return handleResponse(res)
+//         })
+//         .then(data_ => {
+//             if (!data_) {
+//                 return
+//             }
 
-            dataReleases = ({
-                name: reponame,
-                release: data_.tag_name,
-                release_url: data_.html_url
-            })
+//             dataReleases = ({
+//                 name: reponame,
+//                 release: data_.tag_name,
+//                 release_url: data_.html_url
+//             })
 
-            log('Re-built releases cache. ' +
-                `Latest release: ${data_.tag_name}. ` +
-                `Elapsed: ${(new Date() - start)}ms`)
-        })
-        .catch(error => {
-            logError('Error parsing response from GitHub: ' + error.stack)
-        })
-}
+//             log('Re-built releases cache. ' +
+//                 `Latest release: ${data_.tag_name}. ` +
+//                 `Elapsed: ${(new Date() - start)}ms`)
+//         })
+//         .catch(error => {
+//             logError('Error parsing response from GitHub: ' + error.stack)
+//         })
+// }
 
 const engage = () => {
     fetchRepos()
-    fetchReleases()
+    //fetchReleases()
 }
 
 //

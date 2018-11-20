@@ -1,5 +1,5 @@
 {
-  "name": "bigchaindb-github-projects",
+  "name": "@oceanprotol/github-projects",
   "private": true,
   "version": "1.0.0",
   "scripts": {
@@ -28,7 +28,7 @@
     "xo": "^0.23.0"
   },
   "now": {
-    "alias": "bigchaindb-github.now.sh",
+    "alias": "oceanprotocol-github.now.sh",
     "env": {
       "NODE_ENV": "production"
     }

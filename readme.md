@@ -1,17 +1,19 @@
-# [![github-projects](media/repo-banner@2x.png)](https://www.bigchaindb.com)
+[![banner](https://raw.githubusercontent.com/oceanprotocol/art/master/github/repo-banner%402x.png)](https://docs.oceanprotocol.com)
 
-> Microservice to cache and expose GitHub projects for use throughout [www.bigchaindb.com](https://www.bigchaindb.com).
+<h1 align="center">github-projects</h1>
 
-[![Build Status](https://travis-ci.org/bigchaindb/github-projects.svg?branch=master)](https://travis-ci.org/bigchaindb/github-projects)
+> Microservice to cache and expose GitHub projects for use throughout [oceanprotocol.com](https://oceanprotocol.com).
+
+[![Build Status](https://travis-ci.org/oceanprotocol/github-projects.svg?branch=master)](https://travis-ci.org/oceanprotocol/github-projects)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-[![Greenkeeper badge](https://badges.greenkeeper.io/bigchaindb/github-projects.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/oceanprotocol/github-projects.svg)](https://greenkeeper.io/)
 <img src="http://forthebadge.com/images/badges/powered-by-electricity.svg" height="20"/>
 <img src="http://forthebadge.com/images/badges/as-seen-on-tv.svg" height="20"/>
 <img src="http://forthebadge.com/images/badges/uses-badges.svg" height="20"/>
 
 ## API
 
-Endpoint: [`https://bigchaindb-github.now.sh`](https://bigchaindb-github.now.sh)
+Endpoint: [`https://oceanprotocol-github.now.sh`](https://oceanprotocol-github.now.sh)
 
 ### GET /
 
@@ -26,11 +28,11 @@ Endpoint: [`https://bigchaindb-github.now.sh`](https://bigchaindb-github.now.sh)
     "forks": 293,
     "is_fork": false,
     "release": "v0.10.0",
-    "release_url": "https://github.com/bigchaindb/bigchaindb/releases/tag/v0.10.0",
-    "url": "https://github.com/bigchaindb/project",
+    "release_url": "https://github.com/oceanprotocol/aquarius/releases/tag/v0.10.0",
+    "url": "https://github.com/oceanprotocol/project",
     "topics": [
-      "bigchaindb",
-      "bigchaindb-driver",
+      "oceanprotocol",
+      "oceanprotocol-driver",
       "python"
     ]
   }
@@ -76,6 +78,6 @@ now alias
 
 ## Authors
 
-- Matthias Kretschmann ([@kremalicious](https://github.com/kremalicious)) - [BigchainDB](https://www.bigchaindb.com)
+- Matthias Kretschmann ([@kremalicious](https://github.com/kremalicious)) - [Ocean Protocol](https://oceanprotocol.com)
 
 Blatantly ~~copied from~~ inspired by [zeit/github-projects](https://github.com/zeit/github-projects)
