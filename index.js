@@ -1,3 +1,5 @@
+/* eslint-disable camelcase, no-console */
+
 const fetch = require('node-fetch')
 const ms = require('ms')
 const chalk = require('chalk')
@@ -107,7 +109,7 @@ const fetchRepos = () => {
 
 const engage = () => {
     fetchRepos()
-    //fetchReleases()
+    // fetchReleases()
 }
 
 //
@@ -126,7 +128,7 @@ module.exports = async (req, res) => {
     // Merge the responses together
     // kinda hacky, needs rewrite for adding release info to all objects in dataRepos
     data = await Object.assign(dataReleases, dataRepos[0])
-    data = Object.assign(dataRepos, {0: data})
+    data = Object.assign(dataRepos, { 0: data })
 
     // Make json pretty again.
     data = JSON.stringify(data, null, 2)

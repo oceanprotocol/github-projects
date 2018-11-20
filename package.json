@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "micro",
-    "test": "xo && ava"
+    "test": "eslint --ignore-path .gitignore --ext .js,.jsx . && ava"
   },
   "xo": {
     "esnext": true,
@@ -19,13 +19,15 @@
     "micro": "9.3.3",
     "ms": "2.1.1",
     "node-fetch": "2.3.0",
-    "request": "^2.85.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
-    "request-promise": "^4.2.1",
-    "test-listen": "^1.1.0",
-    "xo": "^0.23.0"
+    "eslint": "^5.9.0",
+    "eslint-config-oceanprotocol": "^1.3.0",
+    "eslint-plugin-node": "^8.0.0",
+    "request-promise": "^4.2.2",
+    "test-listen": "^1.1.0"
   },
   "now": {
     "alias": "oceanprotocol-github.now.sh",
