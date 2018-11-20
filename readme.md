@@ -4,7 +4,7 @@
 
 > Microservice to cache and expose GitHub projects for use throughout [oceanprotocol.com](https://oceanprotocol.com).
 
-[![Build Status](https://travis-ci.org/oceanprotocol/github-projects.svg?branch=master)](https://travis-ci.org/oceanprotocol/github-projects)
+[![Build Status](https://travis-ci.com/oceanprotocol/github-projects.svg?branch=master)](https://travis-ci.com/oceanprotocol/github-projects)
 [![js oceanprotocol](https://img.shields.io/badge/js-oceanprotocol-7b1173.svg)](https://github.com/oceanprotocol/eslint-config-oceanprotocol)
 [![Greenkeeper badge](https://badges.greenkeeper.io/oceanprotocol/github-projects.svg)](https://greenkeeper.io/)
 <img src="http://forthebadge.com/images/badges/powered-by-electricity.svg" height="20"/>
