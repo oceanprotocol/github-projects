@@ -24,12 +24,10 @@ Endpoint: [`https://oceanprotocol-github.now.sh`](https://oceanprotocol-github.n
   {
     "name": "project-name",
     "description": "The description",
+    "url": "https://github.com/oceanprotocol/project",
     "stars": 3040,
     "forks": 293,
     "is_fork": false,
-    "release": "v0.10.0",
-    "release_url": "https://github.com/oceanprotocol/aquarius/releases/tag/v0.10.0",
-    "url": "https://github.com/oceanprotocol/project",
     "topics": [
       "oceanprotocol",
       "oceanprotocol-driver",
