@@ -1,10 +1,10 @@
-/* eslint-disable camelcase, no-console */
+/* eslint-disable no-console */
 
 const fetch = require('node-fetch')
 const chalk = require('chalk')
-const express = require('express')
+const ms = require('ms')
 
-const orgname = 'oceanprotocol'
+let cache = null
 
 const log = text => console.log(text)
 const logError = text => console.log(chalk.bold.red(text))
@@ -13,28 +13,30 @@ const logError = text => console.log(chalk.bold.red(text))
 const options = {
     headers: {
         // For getting topics, see note on https://developer.github.com/v3/search/
-        Accept: 'application/vnd.github.mercy-preview+json'
-        // Accept: 'application/vnd.github.preview'
+        // Accept: 'application/vnd.github.mercy-preview+json'
+        Accept: 'application/vnd.github.preview'
     }
 }
-
-const url = 'https://api.github.com/orgs/' + orgname + '/repos?type=public&per_page=100'
 
 //
 // Fetch all public GitHub repos
 //
 const fetchRepos = async () => {
+    const url = 'https://api.github.com/orgs/oceanprotocol/repos?type=public&per_page=100'
     const start = Date.now()
+    const response = await fetch(url, options)
 
-    try {
-        const response = await fetch(url, options)
-        const json = await response.json()
+    if (response.status !== 200) {
+        logError(`Non-200 response code from GitHub: ${response.status}`)
+        return null
+    }
 
-        if (json.message) {
-            return json
-        }
+    const json = await response.json()
 
-        const dataRepos = await json.map(({
+    /* eslint-disable camelcase */
+    const dataRepos = await json
+        .filter(repo => !repo.archived)
+        .map(({
             name,
             description,
             html_url,
@@ -51,33 +53,30 @@ const fetchRepos = async () => {
             is_fork: fork,
             topics
         })).sort((p1, p2) => p2.stars - p1.stars)
+    /* eslint-enable camelcase */
 
-        log(`Got ${json.length} public Ocean Protocol projects. ` +
-            `Elapsed: ${(new Date() - start)}ms`)
+    log(
+        `Re-built projects cache. ` +
+        `Total: ${dataRepos.length} public Ocean Protocol projects. ` +
+        `Elapsed: ${new Date() - start}ms`
+    )
 
-        return dataRepos
-    } catch (error) {
-        logError('Error parsing response from GitHub: ' + error)
+    return {
+        data: dataRepos,
+        lastUpdate: Date.now()
     }
 }
 
 //
 // Create the response
 //
-const port = process.env.PORT || 3000
-const app = express()
-
-app.get('/', async (req, res) => {
+module.exports = async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Methods', 'GET')
 
-    const data = await fetchRepos()
+    if (!cache || Date.now() - cache.lastUpdate > ms('5m')) {
+        cache = await fetchRepos()
+    }
 
-    res.send(data)
-    res.end()
-})
-
-app.listen(port, err => {
-    if (err) throw err
-    log(`> Ready On Server http://localhost:${port}`)
-})
+    res.end(JSON.stringify(cache.data))
+}
