@@ -1,4 +1,4 @@
-[![banner](https://raw.githubusercontent.com/oceanprotocol/art/master/github/repo-banner%402x.png)](https://docs.oceanprotocol.com)
+[![banner](https://raw.githubusercontent.com/oceanprotocol/art/master/github/repo-banner%402x.png)](https://oceanprotocol.com)
 
 <h1 align="center">github-projects</h1>
 
@@ -61,7 +61,7 @@ npm test
 
 ## Deployment
 
-Deploy to [now](https://zeit.co/now), make sure to switch to BigchainDB org before deploying:
+Deploy to [now](https://zeit.co/now), make sure to switch to Ocean Protocol org before deploying:
 
 ```bash
 # first run
