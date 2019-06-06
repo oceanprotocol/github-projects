@@ -35,7 +35,6 @@ const fetchRepos = async () => {
 
     /* eslint-disable camelcase */
     const dataRepos = await json
-        .filter(repo => !repo.archived)
         .map(({
             name,
             description,
@@ -43,6 +42,7 @@ const fetchRepos = async () => {
             stargazers_count,
             forks_count,
             fork,
+            archived,
             topics
         }) => ({
             name,
@@ -50,7 +50,8 @@ const fetchRepos = async () => {
             url: html_url,
             stars: stargazers_count,
             forks: forks_count,
-            is_fork: fork,
+            isArchived: archived,
+            isFork: fork,
             topics
         })).sort((p1, p2) => p2.stars - p1.stars)
     /* eslint-enable camelcase */
