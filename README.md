@@ -27,7 +27,8 @@ Endpoint: [`https://oceanprotocol-github.now.sh`](https://oceanprotocol-github.n
     "url": "https://github.com/oceanprotocol/project",
     "stars": 3040,
     "forks": 293,
-    "is_fork": false,
+    "isFork": false,
+    "isArchived": false,
     "topics": [
       "oceanprotocol",
       "oceanprotocol-driver",
@@ -42,6 +43,7 @@ Endpoint: [`https://oceanprotocol-github.now.sh`](https://oceanprotocol-github.n
 Install dependencies:
 
 ```bash
+npm install -g now
 npm install
 ```
 
@@ -61,7 +63,13 @@ npm test
 
 ## Deployment
 
-Deploy to [now](https://zeit.co/now), make sure to switch to Ocean Protocol org before deploying:
+Every branch is automatically deployed to [Now](https://zeit.co/now) with their GitHub integration. A link to a deployment will appear under each Pull Request.
+
+The latest deployment of the `master` branch is automatically aliased to `oceanprotocol-github.now.sh`, configured as `alias` in [`now.json`](now.json).
+
+### Manual Deployment
+
+If needed, app can be deployed manually. Make sure to switch to Ocean Protocol org before deploying:
 
 ```bash
 # first run
@@ -77,5 +85,3 @@ now alias
 ## Authors
 
 - Matthias Kretschmann ([@kremalicious](https://github.com/kremalicious)) - [Ocean Protocol](https://oceanprotocol.com)
-
-Blatantly ~~copied from~~ inspired by [zeit/github-projects](https://github.com/zeit/github-projects)
