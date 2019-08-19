@@ -76,6 +76,7 @@ module.exports = async (req, res) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET')
 
     if (!cache || Date.now() - cache.lastUpdate > ms('5m')) {
+        // eslint-disable-next-line require-atomic-updates
         cache = await fetchRepos()
     }
 
