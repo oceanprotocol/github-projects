@@ -57,7 +57,7 @@ const fetchRepos = async () => {
     /* eslint-enable camelcase */
 
     log(
-        `Re-built projects cache. ` +
+        'Re-built projects cache. ' +
         `Total: ${dataRepos.length} public Ocean Protocol projects. ` +
         `Elapsed: ${new Date() - start}ms`
     )
