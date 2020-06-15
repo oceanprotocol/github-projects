@@ -7,7 +7,7 @@
     "test": "eslint --ignore-path .gitignore --ext .js,.jsx ."
   },
   "dependencies": {
-    "chalk": "4.0.0",
+    "chalk": "4.1.0",
     "ms": "^2.1.2",
     "node-fetch": "2.6.0"
   },
